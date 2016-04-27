@@ -46,7 +46,8 @@ class UploadHelper extends AppHelper {
             if (in_array($type, $allIconFiles)) {
                 $str .= "<img src='" . Router::url("/") . "ajax_multi_upload/img/fileicons/$type.png' /> ";
             }
-			$str .= "<a href='$url'>" . $f . "</a> ($filesize)";
+			$urlCleaned = str_replace("'", "&#39;", $url);
+			$str .= "<a target='_blank' href='$urlCleaned'>" . $f . "</a> ($filesize)";
 			$str .= "<br />\n";
 		}
 		$str .= "</dd>\n"; 
